@@ -15,8 +15,10 @@ let t_Co=256
 colorscheme sorbet
 "Show hidden buffers.
 set hidden
-"auto-indent lines.
+"auto-indent lines, do not break inside words.
 set autoindent
+set lbr 
+set breakindent
 "tab width
 set shiftwidth=4
 let &softtabstop=&shiftwidth
@@ -77,13 +79,16 @@ nnoremap <leader>bv :bo<space>vert<space>sbuffer <C-k>
 nmap <leader>w <C-w>
 nnoremap <C-w>q <C-w>c
 
-"Save all changed buffers and close the program.
+"(Save all changed buffers?) and close the program.
+nnoremap <leader>qs :xa<cr>
 nnoremap <leader>qq :qa<cr>
+nnoremap <leader>qk :qa!<cr>
 
 "Juggling files better.
 set path=.,**
 nnoremap <leader>ff :find *
 nnoremap <leader>fv :bo<space>vert<space>sfind *
+nnoremap <leader>fp :e<space>~/.vim/vimrc<cr>
 nnoremap <leader>fs :w<cr>
 
 "Copy and paste using system clipboard. Requires gvim.
